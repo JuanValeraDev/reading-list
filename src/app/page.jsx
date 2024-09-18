@@ -1,20 +1,13 @@
 import React from 'react'
-import booksData from "/books.json"
-import Image from "next/image";
+import booksData from '/books.json'
+import AvailableBooksList from './ui/components/AvailableBooksList'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function Home() {
-    return (
-        <div>
-            Reading List
-            <ul>
-                {booksData.library.map((item, index) => (
-                    <li key={index}>
-                        <h2>{item.book.title}</h2>
-                        <p>{item.book.synopsis}</p>
-                        <Image src={item.book.cover} alt={"This is the cover of the book."} width={100} height={100}/>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+  return (
+    <div className={"d-flex flex-column align-items-center justify-content-center"}>
+      <h1>Reading List</h1>
+      <AvailableBooksList books={booksData.library} />
+    </div>
+  )
 }
